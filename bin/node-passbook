@@ -75,7 +75,7 @@ function extractWWDRKey(keysPath, callback) {
       callback();
     } else {
       CLI.info("Extracting Apple WWDR certificate into directory " + destination);
-      var command = "security find-certificate -p -c 'Apple Worldwide Developer Relations Certification Authority' login.keychain";
+      var command = "security find-certificate -a -p -c 'Apple Worldwide Developer Relations Certification Authority' login.keychain";
       CLI.exec(command, function(keyContents) {
         File.writeFile(destination, keyContents.join("\n"), callback);
       }, callback);
